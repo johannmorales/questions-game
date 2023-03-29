@@ -9,7 +9,7 @@ services:
     environment:
       - PORT=${PORT}
     ports:
-      - 4000:3000
+      - 4000:${PORT}
   questions-client:
     build:
       dockerfile: Dockerfile
@@ -17,7 +17,7 @@ services:
     restart: always
     env_file: .env
     environment:
-      - PORT=${PORT}
+      - BACKEND_URL=http://${PUBLIC_IP}:4000
     ports:
       - 4001:80
     depends_on:
