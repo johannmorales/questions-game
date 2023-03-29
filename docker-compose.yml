@@ -14,10 +14,10 @@ services:
     build:
       dockerfile: Dockerfile
       context: "./client"
+      args:
+        - VITE_BACKEND_URL=http://${PUBLIC_IP}:4000
     restart: always
     env_file: .env
-    environment:
-      - BACKEND_URL=http://${PUBLIC_IP}:4000
     ports:
       - 4001:80
     depends_on:

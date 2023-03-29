@@ -7,8 +7,9 @@ export const useSocket = (token: string) => {
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
+    console.log("test", import.meta.env.VITE_BACKEND_URL);
     const newSocket = token
-      ? io(import.meta.env.BACKEND_URL, {
+      ? io(import.meta.env.VITE_BACKEND_URL, {
           extraHeaders: {
             token,
           },
