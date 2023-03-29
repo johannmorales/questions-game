@@ -1,11 +1,14 @@
+import { useSearchParams } from "react-router-dom";
 import { Answer } from "../components/Answer";
 import { Question } from "../components/Question";
+import { Steps } from "../components/Steps";
 import { useSocket } from "../hooks/useSocket";
 
 import "./Game.css";
 
 export const Game: React.FC = () => {
-  const { state } = useSocket("asd");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { state } = useSocket(searchParams.get("id")!);
 
   if (!state) {
     return null;
@@ -13,6 +16,9 @@ export const Game: React.FC = () => {
 
   return (
     <div className="wrapper">
+      <div className="hidden md:block pb-3">
+        <Steps state={state} />
+      </div>
       <Question
         index={state.questionIndex}
         value={state.questions[state.questionIndex].text}

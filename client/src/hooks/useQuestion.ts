@@ -7,28 +7,21 @@ export const useSocket = (token: string) => {
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const newSocket = token
-      ? io("http://192.168.100.14:3000", {
-          extraHeaders: {
-            token,
-          },
-        })
-      : null;
+    const newSocket = io("http://192.168.100.14:3000", {
+      extraHeaders: {
+        token,
+      },
+    });
 
     function onUpdate(newState: State) {
       setState(newState);
     }
 
-    if (newSocket) {
-      newSocket.on("update", onUpdate);
-    }
-
+    newSocket.on("update", onUpdate);
     setSocket(newSocket);
     return () => {
-      if (newSocket) {
-        newSocket.disconnect();
-        newSocket.off("update", onUpdate);
-      }
+      newSocket.disconnect();
+      newSocket.off("update", onUpdate);
       setSocket(null);
     };
   }, [token]);

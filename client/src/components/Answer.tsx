@@ -12,13 +12,23 @@ export const Answer: React.FC<{
   return (
     <div
       className={clsasNames(
-        "answer",
+        "answer drop-shadow-2xl",
         selected && !showAnswer && "answerSelected",
         showAnswer && "answerCorrect"
       )}
     >
-      <span className="letter">· {LETTERS.at(index)}: </span>
-      {revealed && value}
+      <div
+        className={clsasNames(
+          "transition-opacity duration-50",
+          revealed && "opacity-100",
+          !revealed && "opacity-0"
+        )}
+      >
+        <span className="letter">
+          <span className="hidden md:inline-block">·</span> {LETTERS.at(index)}:{" "}
+        </span>
+        <span className="drop-shadow-lg">{value}</span>
+      </div>
     </div>
   );
 };

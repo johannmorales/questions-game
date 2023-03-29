@@ -68,6 +68,342 @@ const state: State = {
         },
       ],
     },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
+    {
+      text: "Cual es la capital de chile?",
+      options: [
+        {
+          isAnswer: false,
+          text: "Lima",
+        },
+        {
+          isAnswer: false,
+          text: "Caracas",
+        },
+        {
+          isAnswer: false,
+          text: "Jaen",
+        },
+        {
+          isAnswer: true,
+          text: "Santiago",
+        },
+      ],
+    },
   ],
 };
 
@@ -156,4 +492,4 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(port);
+httpServer.listen(port || 3000);

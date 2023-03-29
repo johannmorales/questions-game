@@ -1,12 +1,21 @@
+import classNames from "classnames";
+
 export const Question: React.FC<{
   index: number;
   value: string;
   revealed: boolean;
 }> = ({ index, value, revealed }) => {
   return (
-    <div className="answer">
-      <span className="number">{index + 1}. </span>
-      {revealed && value}
+    <div className={classNames("answer", "justify-start md:justify-center")}>
+      <span
+        className={classNames(
+          "transition-opacity duration-500",
+          revealed && "opacity-100",
+          !revealed && "opacity-0"
+        )}
+      >
+        {value}
+      </span>
     </div>
   );
 };
