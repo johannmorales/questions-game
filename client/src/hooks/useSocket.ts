@@ -8,7 +8,7 @@ export const useSocket = (token: string) => {
 
   useEffect(() => {
     const newSocket = token
-      ? io("http://192.168.100.2:4000", {
+      ? io(import.meta.env.BACKEND_URL, {
           extraHeaders: {
             token,
           },
