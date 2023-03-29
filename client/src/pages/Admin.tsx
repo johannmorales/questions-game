@@ -20,7 +20,7 @@ const QuestionButton: React.FC<{
 };
 
 export const Admin: React.FC = () => {
-  const { socket, state } = useSocket("");
+  const { socket, state } = useSocket("s");
 
   if (!state || !socket) {
     return null;

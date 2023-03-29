@@ -8,7 +8,7 @@ export const useSocket = (token: string) => {
 
   useEffect(() => {
     const newSocket = token
-      ? io("http://192.168.100.14:3000", {
+      ? io("http://192.168.100.2:4000", {
           extraHeaders: {
             token,
           },

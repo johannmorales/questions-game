@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  client:
+    container_name: client
+    restart: always
+    build: .
+    env_file: .env
+    environment:
+      - PORT=${PORT}
+    ports:
+      - 4001:80

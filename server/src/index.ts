@@ -492,4 +492,4 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(port || 3000);
+httpServer.listen(port);
