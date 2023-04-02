@@ -34,317 +34,317 @@ const state: State = {
   bonusSacrifice: true,
   questions: [
     {
-      text: "Cual es la capital de peru?",
+      text: "¿Cuál es la capital de Perú?",
       options: [
+        {
+          isAnswer: false,
+          text: "Arequipa",
+        },
+        {
+          isAnswer: false,
+          text: "Cuzco",
+        },
+        {
+          isAnswer: false,
+          text: "San Juan de Miraflores",
+        },
         {
           isAnswer: true,
           text: "Lima",
-        },
-        {
-          isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
-        },
-        {
-          isAnswer: false,
-          text: "Santiago",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: "¿Qué año se lanzó el videojuego llamado League of Legends?",
       options: [
         {
           isAnswer: false,
-          text: "Lima",
-        },
-        {
-          isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
+          text: "2008",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "2009",
+        },
+        {
+          isAnswer: false,
+          text: "2010",
+        },
+        {
+          isAnswer: false,
+          text: "2011",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: "¿Según el lore del famosísimo Don WuaWuas, ¿Con cuántas femeninas ha flirteado en lo que va del año?",
       options: [
         {
           isAnswer: false,
-          text: "Lima",
+          text: "Ninguna",
         },
         {
           isAnswer: false,
-          text: "Caracas",
+          text: "2",
         },
         {
           isAnswer: false,
-          text: "Jaen",
+          text: "4",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "5",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: "¿Cuál es la lengua oficial en china?",
       options: [
         {
           isAnswer: false,
-          text: "Lima",
+          text: "Cantonés",
         },
         {
           isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
+          text: "Chino",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "Mandarín",
+        },
+        {
+          isAnswer: false,
+          text: "Xiāng",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: "Según el lore de League of legends, ¿Quién es el padre de Kai'sa?",
       options: [
         {
-          isAnswer: false,
-          text: "Lima",
-        },
-        {
-          isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
-        },
-        {
           isAnswer: true,
-          text: "Santiago",
+          text: "Kassadin",
+        },
+        {
+          isAnswer: false,
+          text: "Malzahar",
+        },
+        {
+          isAnswer: false,
+          text: "Vel'Koz",
+        },
+        {
+          isAnswer: false,
+          text: "Ryze",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: `Existe un animal llamado vulgarmente "el animal más inútil del mundo", ¿cuál es?`,
       options: [
         {
           isAnswer: false,
-          text: "Lima",
+          text: "Vaquita Marina",
         },
         {
           isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
+          text: "Pez dragón",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "Pez luna",
+        },
+        {
+          isAnswer: false,
+          text: "Pez gota",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: `¿En qué año se produjo la Revolución Francesa?`,
       options: [
         {
-          isAnswer: false,
-          text: "Lima",
-        },
-        {
-          isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
-        },
-        {
           isAnswer: true,
-          text: "Santiago",
+          text: "1789",
+        },
+        {
+          isAnswer: false,
+          text: "1879",
+        },
+        {
+          isAnswer: false,
+          text: "1897",
+        },
+        {
+          isAnswer: false,
+          text: "1978",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: `¿Cuál es el videojuego más vendido en la historia?`,
       options: [
         {
           isAnswer: false,
-          text: "Lima",
+          text: "GTA V",
         },
         {
           isAnswer: false,
-          text: "Caracas",
+          text: "Tetris",
         },
         {
           isAnswer: false,
-          text: "Jaen",
+          text: "Super Mario Bros",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "Minecraft",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: `Según los acertados y muy útiles datos que he dado ¿cuál es el órgano qué más consume energía?`,
       options: [
         {
           isAnswer: false,
-          text: "Lima",
+          text: "Corazón",
         },
         {
           isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
+          text: "Pulmones",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "Cerebro",
+        },
+        {
+          isAnswer: false,
+          text: "Hígado",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: `¿Quién inventó la bombilla?`,
       options: [
         {
           isAnswer: false,
-          text: "Lima",
-        },
-        {
-          isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
+          text: "CummingReal",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "Thomas Edison",
+        },
+        {
+          isAnswer: false,
+          text: "Isaac Newton",
+        },
+        {
+          isAnswer: false,
+          text: "Alexander Fleming",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: `¿Cómo se llamaba el personaje que trabajaba en la tienda de neumáticos de Radiador Springs y además era el mejor amigo de Luigi?`,
       options: [
         {
           isAnswer: false,
-          text: "Lima",
+          text: "Sally",
         },
         {
           isAnswer: false,
-          text: "Caracas",
+          text: "Fillmore",
         },
         {
           isAnswer: false,
-          text: "Jaen",
+          text: "Ramón",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "Guido",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: `¿Cuál de estos dinosaurios es carnívoro?`,
       options: [
         {
           isAnswer: false,
-          text: "Lima",
+          text: "Estegosaurio",
         },
         {
           isAnswer: false,
-          text: "Caracas",
+          text: "Brontosaurus",
         },
         {
           isAnswer: false,
-          text: "Jaen",
+          text: "Protoceratops",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "Alosaurio",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: `¿En que año se lanzó la Nintendo Switch?`,
       options: [
         {
           isAnswer: false,
-          text: "Lima",
+          text: "2016",
         },
         {
           isAnswer: false,
-          text: "Caracas",
+          text: "2017",
         },
         {
           isAnswer: false,
-          text: "Jaen",
+          text: "2018",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "2019",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: `¿En qué año se independizó Panamá de España?`,
       options: [
         {
-          isAnswer: false,
-          text: "Lima",
-        },
-        {
-          isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
-        },
-        {
           isAnswer: true,
-          text: "Santiago",
+          text: "1821",
+        },
+        {
+          isAnswer: false,
+          text: "1903",
+        },
+        {
+          isAnswer: false,
+          text: "1904",
+        },
+        {
+          isAnswer: false,
+          text: "1909",
         },
       ],
     },
     {
-      text: "Cual es la capital de chile?",
+      text: `¿Qué videojuego se diseñó principalmente para tratar la depresión?`,
       options: [
         {
           isAnswer: false,
-          text: "Lima",
-        },
-        {
-          isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
+          text: "Smilez",
         },
         {
           isAnswer: true,
-          text: "Santiago",
+          text: "Sparx",
+        },
+        {
+          isAnswer: false,
+          text: "Alegría",
+        },
+        {
+          isAnswer: false,
+          text: "Therapex",
         },
       ],
     },
