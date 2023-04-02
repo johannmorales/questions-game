@@ -31,10 +31,11 @@ const Step: React.FC<{
   return (
     <span
       className={classNames(
-        "text-base border-[3px] drop-shadow flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full z-10 bg-gray-400 text-white",
-        current && "border-amber-400",
-        !current && "border-gray-300",
-        "transition-all duration-300"
+        "text-base border-[3px] drop-shadow flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full z-10 bg-gray-300 text-white shadow-md",
+        current && "border-yellow-500",
+        !current && "border-0",
+        "transition-all duration-300",
+        !current && !unlocked && "text-gray-400"
       )}
       style={{
         background: unlocked
@@ -44,7 +45,7 @@ const Step: React.FC<{
           : undefined,
       }}
     >
-      <h1 className="font-semibold text-white drop-shadow-lg">{index + 1}</h1>
+      <h1 className="font-semibold drop-shadow-lg">{index + 1}</h1>
     </span>
   );
 };

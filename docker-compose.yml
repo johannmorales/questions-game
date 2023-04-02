@@ -9,7 +9,7 @@ services:
     environment:
       - PORT=${PORT}
     ports:
-      - 4000:${PORT}
+      - ${BACKEND_PORT}:${PORT}
   questions-client:
     build:
       dockerfile: Dockerfile
@@ -19,6 +19,6 @@ services:
     restart: always
     env_file: .env
     ports:
-      - 4001:80
+      - ${FRONTEND_PORT}:80
     depends_on:
       - questions-server

@@ -4,6 +4,9 @@ export type State = {
   showAnswer?: boolean;
   showQuestion: boolean;
   showOptionsUntil: number;
+  bonus5050: boolean;
+  bonusCall: boolean;
+  bonusSacrifice: boolean;
   questions: {
     text: string;
     options: {

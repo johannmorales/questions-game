@@ -19,14 +19,12 @@ export const Answer: React.FC<{
     >
       <div
         className={clsasNames(
-          "transition-opacity duration-50",
+          "transition-opacity duration-500",
           revealed && "opacity-100",
           !revealed && "opacity-0"
         )}
       >
-        <span className="letter">
-          <span className="hidden md:inline-block">·</span> {LETTERS.at(index)}:{" "}
-        </span>
+        <span className="letter">{LETTERS.at(index)}. </span>
         <span className="drop-shadow-lg">{value}</span>
       </div>
     </div>

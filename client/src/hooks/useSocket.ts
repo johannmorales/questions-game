@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
 import { State } from "../types";
+import { useSearchParams } from "react-router-dom";
 
-export const useSocket = (token: string) => {
+export const useSocket = () => {
+  const [searchParams] = useSearchParams();
   const [state, setState] = useState<State | null>(null);
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    console.log("test", import.meta.env.VITE_BACKEND_URL);
+    const token = searchParams.get("token");
     const newSocket = token
       ? io(import.meta.env.VITE_BACKEND_URL, {
           extraHeaders: {
@@ -32,7 +34,7 @@ export const useSocket = (token: string) => {
       }
       setSocket(null);
     };
-  }, [token]);
+  }, [searchParams]);
 
   return {
     socket,

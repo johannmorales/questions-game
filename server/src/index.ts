@@ -5,12 +5,15 @@ import { Server } from "socket.io";
 
 dotenv.config();
 
-type State = {
-  showQuestion: boolean;
-  showOptionsUntil: number;
+export type State = {
   selectedOption?: number;
   questionIndex: number;
   showAnswer?: boolean;
+  showQuestion: boolean;
+  showOptionsUntil: number;
+  bonus5050: boolean;
+  bonusCall: boolean;
+  bonusSacrifice: boolean;
   questions: {
     text: string;
     options: {
@@ -19,12 +22,16 @@ type State = {
     }[];
   }[];
 };
+
 const state: State = {
   questionIndex: 0,
   selectedOption: undefined,
   showAnswer: false,
   showQuestion: false,
   showOptionsUntil: 0,
+  bonus5050: true,
+  bonusCall: true,
+  bonusSacrifice: true,
   questions: [
     {
       text: "Cual es la capital de peru?",
@@ -341,69 +348,6 @@ const state: State = {
         },
       ],
     },
-    {
-      text: "Cual es la capital de chile?",
-      options: [
-        {
-          isAnswer: false,
-          text: "Lima",
-        },
-        {
-          isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
-        },
-        {
-          isAnswer: true,
-          text: "Santiago",
-        },
-      ],
-    },
-    {
-      text: "Cual es la capital de chile?",
-      options: [
-        {
-          isAnswer: false,
-          text: "Lima",
-        },
-        {
-          isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
-        },
-        {
-          isAnswer: true,
-          text: "Santiago",
-        },
-      ],
-    },
-    {
-      text: "Cual es la capital de chile?",
-      options: [
-        {
-          isAnswer: false,
-          text: "Lima",
-        },
-        {
-          isAnswer: false,
-          text: "Caracas",
-        },
-        {
-          isAnswer: false,
-          text: "Jaen",
-        },
-        {
-          isAnswer: true,
-          text: "Santiago",
-        },
-      ],
-    },
   ],
 };
 
@@ -421,6 +365,9 @@ interface ClientToServerEvents {
   showAnswer: () => void;
   next: () => void;
   previous: () => void;
+  bonusCall: () => void;
+  bonusSacrifice: () => void;
+  bonus5050: () => void;
 }
 
 interface InterServerEvents {}
@@ -441,6 +388,12 @@ const io = new Server<
 
 // security middleware
 io.use((socket, next) => {
+  if (socket.request.headers.token !== process.env.TOKEN) {
+    console.error("Wrong token", socket.request.headers.token);
+    socket.disconnect();
+  } else {
+    console.log("New socket connection", socket.request.headers.origin);
+  }
   next();
 });
 
@@ -490,6 +443,20 @@ io.on("connection", (socket) => {
     state.showOptionsUntil = 0;
     io.emit("update", state);
   });
+  socket.on("bonus5050", () => {
+    state.bonus5050 = !state.bonus5050;
+    io.emit("update", state);
+  });
+  socket.on("bonusCall", () => {
+    state.bonusCall = !state.bonusCall;
+    io.emit("update", state);
+  });
+  socket.on("bonusSacrifice", () => {
+    state.bonusSacrifice = !state.bonusSacrifice;
+    io.emit("update", state);
+  });
 });
 
-httpServer.listen(port);
+httpServer.listen(port, () => {
+  console.log("Server started running on port", port);
+});
