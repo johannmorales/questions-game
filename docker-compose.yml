@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile
       context: "./client"
       args:
-        - VITE_BACKEND_URL=http://${PUBLIC_IP}:4000
+        - VITE_BACKEND_URL=http://${PUBLIC_IP}:${BACKEND_PORT}
     restart: always
     ports:
       - ${FRONTEND_PORT}:80
