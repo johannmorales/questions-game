@@ -1,5 +1,5 @@
 export type State = {
-  selectedOption?: number;
+  selectedOption: undefined | number;
   questionIndex: number;
   showAnswer?: boolean;
   showQuestion: boolean;

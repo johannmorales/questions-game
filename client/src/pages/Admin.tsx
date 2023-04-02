@@ -131,9 +131,9 @@ export const Admin: React.FC = () => {
           {state.showQuestion && !allShown && (
             <>Mostrar Opcion {LETTERS[state.showOptionsUntil]}</>
           )}
-          {state.showQuestion && allShown && state.selectedOption !== null && (
-            <>Siguiente Pregunta</>
-          )}
+          {state.showQuestion &&
+            allShown &&
+            state.selectedOption !== undefined && <>Siguiente Pregunta</>}
         </button>
       )}
 
