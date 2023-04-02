@@ -39,7 +39,7 @@ export const Admin: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col gap-3 p-3 bg-gray-100 h-screen justify-between">
-      <div className="w-full flex gap-4 flex-row">
+      <div className="w-full flex gap-4 flex-row hidden">
         <button
           className={classNames(
             "flex-grow rounded-md px-3.5 py-5 text-2xl font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",

@@ -16,7 +16,7 @@ export const Game: React.FC = () => {
   return (
     <div>
       <div className=" flex flex-col top-0 right-0 fixed p-1 md:p-4 gap-1 md:gap-3">
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4 hidden">
           <Bonus available={state.bonus5050}>
             <span className="text-2xl text-white font-black">🌗</span>
           </Bonus>
