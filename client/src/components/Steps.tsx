@@ -31,8 +31,8 @@ const Step: React.FC<{
   return (
     <span
       className={classNames(
-        "text-base border-[3px] drop-shadow flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full z-10 bg-gray-300 text-white shadow-md",
-        current && "border-yellow-500",
+        "text-base drop-shadow flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full z-10 bg-gray-300 text-white shadow-md",
+        current && " border-[3px] border-yellow-500",
         !current && "border-0",
         "transition-all duration-300",
         !current && !unlocked && "text-gray-400"
