@@ -55,9 +55,9 @@ export const Admin: React.FC = () => {
         <button
           className={classNames(
             "flex-grow rounded-md px-3.5 py-5 text-2xl font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
-            state.bonusSacrifice &&
-              "bg-gray-500  focus-visible:outline-gray-500 hover:bg-gray-400",
             !state.bonusSacrifice &&
+              "bg-gray-500  focus-visible:outline-gray-500 hover:bg-gray-400",
+            state.bonusSacrifice &&
               "bg-indigo-600  focus-visible:outline-indigo-600 hover:bg-indigo-500",
             "transition-colors"
           )}
@@ -69,9 +69,9 @@ export const Admin: React.FC = () => {
         <button
           className={classNames(
             "flex-grow rounded-md px-3.5 py-5 text-2xl font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
-            state.bonusCall &&
-              "bg-gray-500  focus-visible:outline-gray-500 hover:bg-gray-400",
             !state.bonusCall &&
+              "bg-gray-500  focus-visible:outline-gray-500 hover:bg-gray-400",
+            state.bonusCall &&
               "bg-indigo-600  focus-visible:outline-indigo-600 hover:bg-indigo-500",
             "transition-colors"
           )}
