@@ -16,9 +16,11 @@ const QuestionButton: React.FC<{
       disabled={disabled}
       onClick={onClick}
       className={classNames(
-        "rounded-md bg-blue-600 px-3.5 py-2.5 text-2xl font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:bg-gray-400",
+        "rounded-md px-3.5 py-2.5 text-2xl font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ",
         selected && "bg-amber-600 hover:bg-amber-500",
-        "transition-colors"
+        !selected &&
+          "bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600",
+        "transition-colors disabled:bg-gray-400"
       )}
     >
       {children}
