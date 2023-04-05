@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    /* pointer-events: none !important; */
+    /* user-select: none; */
+}
+body, html, #root {
+    @apply w-full h-full
+}

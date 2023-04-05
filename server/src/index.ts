@@ -2,8 +2,11 @@ import express, { Express, Request, Response } from "express";
 import { createServer } from "http";
 import * as dotenv from "dotenv";
 import { Server } from "socket.io";
+import { GameState, getGameState, startSurvey } from "./game-state.service";
 
-dotenv.config();
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config({ override: true });
+}
 
 export type State = {
   selectedOption?: number;
@@ -32,323 +35,7 @@ const state: State = {
   bonus5050: true,
   bonusCall: true,
   bonusSacrifice: true,
-  questions: [
-    {
-      text: "¿Cuál es la capital de Perú?",
-      options: [
-        {
-          isAnswer: false,
-          text: "Arequipa",
-        },
-        {
-          isAnswer: false,
-          text: "Cuzco",
-        },
-        {
-          isAnswer: false,
-          text: "San Juan de Miraflores",
-        },
-        {
-          isAnswer: true,
-          text: "Lima",
-        },
-      ],
-    },
-    {
-      text: "¿Qué año se lanzó el videojuego llamado League of Legends?",
-      options: [
-        {
-          isAnswer: false,
-          text: "2008",
-        },
-        {
-          isAnswer: true,
-          text: "2009",
-        },
-        {
-          isAnswer: false,
-          text: "2010",
-        },
-        {
-          isAnswer: false,
-          text: "2011",
-        },
-      ],
-    },
-    {
-      text: "¿Según el lore del famosísimo Don WuaWuas, ¿Con cuántas femeninas ha flirteado en lo que va del año?",
-      options: [
-        {
-          isAnswer: false,
-          text: "Ninguna",
-        },
-        {
-          isAnswer: false,
-          text: "2",
-        },
-        {
-          isAnswer: false,
-          text: "4",
-        },
-        {
-          isAnswer: true,
-          text: "5",
-        },
-      ],
-    },
-    {
-      text: "¿Cuál es la lengua oficial en china?",
-      options: [
-        {
-          isAnswer: false,
-          text: "Cantonés",
-        },
-        {
-          isAnswer: false,
-          text: "Chino",
-        },
-        {
-          isAnswer: true,
-          text: "Mandarín",
-        },
-        {
-          isAnswer: false,
-          text: "Xiāng",
-        },
-      ],
-    },
-    {
-      text: "Según el lore de League of legends, ¿Quién es el padre de Kai'sa?",
-      options: [
-        {
-          isAnswer: true,
-          text: "Kassadin",
-        },
-        {
-          isAnswer: false,
-          text: "Malzahar",
-        },
-        {
-          isAnswer: false,
-          text: "Vel'Koz",
-        },
-        {
-          isAnswer: false,
-          text: "Ryze",
-        },
-      ],
-    },
-    {
-      text: `Existe un animal llamado vulgarmente "el animal más inútil del mundo", ¿cuál es?`,
-      options: [
-        {
-          isAnswer: false,
-          text: "Vaquita Marina",
-        },
-        {
-          isAnswer: false,
-          text: "Pez dragón",
-        },
-        {
-          isAnswer: true,
-          text: "Pez luna",
-        },
-        {
-          isAnswer: false,
-          text: "Pez gota",
-        },
-      ],
-    },
-    {
-      text: `¿En qué año se produjo la Revolución Francesa?`,
-      options: [
-        {
-          isAnswer: true,
-          text: "1789",
-        },
-        {
-          isAnswer: false,
-          text: "1879",
-        },
-        {
-          isAnswer: false,
-          text: "1897",
-        },
-        {
-          isAnswer: false,
-          text: "1978",
-        },
-      ],
-    },
-    {
-      text: `¿Cuál es el videojuego más vendido en la historia?`,
-      options: [
-        {
-          isAnswer: false,
-          text: "GTA V",
-        },
-        {
-          isAnswer: false,
-          text: "Tetris",
-        },
-        {
-          isAnswer: false,
-          text: "Super Mario Bros",
-        },
-        {
-          isAnswer: true,
-          text: "Minecraft",
-        },
-      ],
-    },
-    {
-      text: `Según los acertados y muy útiles datos que he dado ¿cuál es el órgano qué más consume energía?`,
-      options: [
-        {
-          isAnswer: false,
-          text: "Corazón",
-        },
-        {
-          isAnswer: false,
-          text: "Pulmones",
-        },
-        {
-          isAnswer: true,
-          text: "Cerebro",
-        },
-        {
-          isAnswer: false,
-          text: "Hígado",
-        },
-      ],
-    },
-    {
-      text: `¿Quién inventó la bombilla?`,
-      options: [
-        {
-          isAnswer: false,
-          text: "CummingReal",
-        },
-        {
-          isAnswer: true,
-          text: "Thomas Edison",
-        },
-        {
-          isAnswer: false,
-          text: "Isaac Newton",
-        },
-        {
-          isAnswer: false,
-          text: "Alexander Fleming",
-        },
-      ],
-    },
-    {
-      text: `¿Cómo se llamaba el personaje que trabajaba en la tienda de neumáticos de Radiador Springs y además era el mejor amigo de Luigi?`,
-      options: [
-        {
-          isAnswer: false,
-          text: "Sally",
-        },
-        {
-          isAnswer: false,
-          text: "Fillmore",
-        },
-        {
-          isAnswer: false,
-          text: "Ramón",
-        },
-        {
-          isAnswer: true,
-          text: "Guido",
-        },
-      ],
-    },
-    {
-      text: `¿Cuál de estos dinosaurios es carnívoro?`,
-      options: [
-        {
-          isAnswer: false,
-          text: "Estegosaurio",
-        },
-        {
-          isAnswer: false,
-          text: "Brontosaurus",
-        },
-        {
-          isAnswer: false,
-          text: "Protoceratops",
-        },
-        {
-          isAnswer: true,
-          text: "Alosaurio",
-        },
-      ],
-    },
-    {
-      text: `¿En que año se lanzó la Nintendo Switch?`,
-      options: [
-        {
-          isAnswer: false,
-          text: "2016",
-        },
-        {
-          isAnswer: false,
-          text: "2017",
-        },
-        {
-          isAnswer: false,
-          text: "2018",
-        },
-        {
-          isAnswer: true,
-          text: "2019",
-        },
-      ],
-    },
-    {
-      text: `¿En qué año se independizó Panamá de España?`,
-      options: [
-        {
-          isAnswer: true,
-          text: "1821",
-        },
-        {
-          isAnswer: false,
-          text: "1903",
-        },
-        {
-          isAnswer: false,
-          text: "1904",
-        },
-        {
-          isAnswer: false,
-          text: "1909",
-        },
-      ],
-    },
-    {
-      text: `¿Qué videojuego se diseñó principalmente para tratar la depresión?`,
-      options: [
-        {
-          isAnswer: false,
-          text: "Smilez",
-        },
-        {
-          isAnswer: true,
-          text: "Sparx",
-        },
-        {
-          isAnswer: false,
-          text: "Alegría",
-        },
-        {
-          isAnswer: false,
-          text: "Therapex",
-        },
-      ],
-    },
-  ],
+  questions: [],
 };
 
 const app: Express = express();
@@ -357,10 +44,11 @@ const httpServer = createServer(app);
 
 interface ServerToClientEvents {
   update: (state: State) => void;
+  update2: (state: GameState) => void;
 }
 
 interface ClientToServerEvents {
-  selectOption: (optionIndex: number) => void;
+  selectOption: (optionIndex: number) => boolean;
   reset: () => void;
   showAnswer: () => void;
   next: () => void;
@@ -389,19 +77,17 @@ const io = new Server<
 // security middleware
 io.use((socket, next) => {
   if (socket.request.headers.token !== process.env.TOKEN) {
-    console.error("Wrong token", socket.request.headers.token);
     socket.disconnect();
-  } else {
-    console.log("New socket connection", socket.request.headers.origin);
   }
   next();
 });
 
 io.on("connection", (socket) => {
-  io.to(socket.id).emit("update", state);
+  io.to(socket.id).emit("update2", getGameState());
   socket.on("selectOption", (selectedIndex) => {
     state.selectedOption = selectedIndex;
     io.emit("update", state);
+    return true;
   });
   socket.on("showAnswer", () => {
     state.showAnswer = true;
@@ -451,12 +137,15 @@ io.on("connection", (socket) => {
     state.bonusCall = !state.bonusCall;
     io.emit("update", state);
   });
-  socket.on("bonusSacrifice", () => {
-    state.bonusSacrifice = !state.bonusSacrifice;
-    io.emit("update", state);
-  });
 });
 
+startSurvey((state) => {
+  io.emit("update2", state);
+});
+
+app.get("/game-status", () => {
+  setInterval(() => {}, 1000);
+});
 httpServer.listen(port, () => {
   console.log("Server started running on port", port);
 });
