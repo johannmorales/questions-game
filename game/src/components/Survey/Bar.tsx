@@ -10,7 +10,7 @@ type Props = {
 export const Bar: FC<Props> = ({ percentage, index, height }) => {
   return (
     <div className="h-full flex flex-col justify-end items-center gap-1">
-      <span className="text-white font-semibold text-sm">
+      <span className="text-white font-semibold text-base">
         {percentage.toFixed(0)}%
       </span>
       <div

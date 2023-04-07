@@ -8,6 +8,7 @@ type GameState = {
   questions: number;
   survey?: number[];
   showSurvey: boolean;
+  sound: number;
 };
 
 export type { GameState };
