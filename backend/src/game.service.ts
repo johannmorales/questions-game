@@ -1,12 +1,15 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { GameState, Questionaire } from './types';
 import { Client } from 'tmi.js';
 import { ConfigService } from '@nestjs/config';
 import { Semaphore } from './utils';
+import { EventsGateway } from './app.websockets';
 
 @Injectable()
-export class GameStateService {
-  private semaphore = new Semaphore();
+export class GameService {
+  private readonly logger = new Logger(GameService.name);
+
+  private semaphore = new Semaphore(1);
   private questioniaire: Questionaire;
   private gameState: GameState = {
     showQuestion: false,
@@ -18,16 +21,24 @@ export class GameStateService {
     questions: 15,
     survey: [0, 0, 0, 0],
     showSurvey: false,
+    sound: 0,
+    selectedOptionIndex: null,
   };
 
-  constructor(private readonly configService: ConfigService) {}
+  constructor(
+    private readonly configService: ConfigService,
+    private readonly eventsGateway: EventsGateway,
+  ) {}
 
   private async update(generator: (_: GameState) => GameState): Promise<void> {
     const lock = await this.semaphore.acquire();
     try {
       const result = generator(this.gameState);
+      this.logger.log(JSON.stringify(result));
       this.gameState = result;
+      this.eventsGateway.server.emit('update2', result);
     } catch (error) {
+      this.logger.error(error);
     } finally {
       lock.release();
     }
@@ -58,23 +69,23 @@ export class GameStateService {
 
     client.on('message', (_, tags, _message) => {
       const message = _message.trim();
-      if (message.length === 1 && message.match(/^[a-d]/gi)) {
-        const userId = tags['user-id'];
-        const oldAnswer = surveyAnswer.get(userId);
-        const answer = Math.round(Math.random() * 3);
-        message.charAt(0).toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0);
-        if (oldAnswer !== answer) {
-          surveyAnswer.set(userId, answer);
-          this.update((prev) => {
-            const result = [...prev.survey];
-            if (oldAnswer !== undefined) {
-              result[oldAnswer]--;
-            }
-            result[answer]++;
-            return { ...prev, survey: result };
-          });
-        }
+      // if (message.length === 1 && message.match(/^[a-d]/gi)) {
+      const userId = tags['user-id'];
+      const oldAnswer = surveyAnswer.get(userId);
+      const answer = Math.round(Math.random() * 3);
+      // message.charAt(0).toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0);
+      if (oldAnswer !== answer) {
+        surveyAnswer.set(userId, answer);
+        this.update((prev) => {
+          const result = [...prev.survey];
+          if (oldAnswer !== undefined) {
+            result[oldAnswer]--;
+          }
+          result[answer]++;
+          return { ...prev, survey: result };
+        });
       }
+      // }
     });
 
     setTimeout(() => {
@@ -94,5 +105,9 @@ export class GameStateService {
         answerIndex: undefined,
       };
     });
+  }
+
+  runSound(): void {
+    this.update((a) => ({ ...a, sound: a.sound + 1 }));
   }
 }

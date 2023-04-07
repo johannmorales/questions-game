@@ -5,9 +5,11 @@ export type GameState = {
   questionContent: string;
   questionIndex: number;
   options: [string, string, string, string];
+  selectedOptionIndex: number | null;
   questions: number;
   survey?: number[];
   showSurvey: boolean;
+  sound: number;
 };
 
 export type Questionaire = {

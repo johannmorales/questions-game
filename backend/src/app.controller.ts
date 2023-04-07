@@ -10,7 +10,7 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { interval, map, Observable } from 'rxjs';
 import { AppService } from './auth/app.service';
-import { GameStateService } from './game-state.service';
+import { GameService } from './game.service';
 import { Roles } from './auth/roles.decorator';
 import { Role } from './types';
 
@@ -19,25 +19,17 @@ export class AppController {
   constructor(
     private readonly appService: AppService,
     private readonly configService: ConfigService,
-    private readonly gameStateService: GameStateService,
+    private readonly gameStateService: GameService,
   ) {}
 
-  @Roles(Role.Admin)
   @Get('questions')
   async getQuestions(@Headers() headers): Promise<boolean> {
-    throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
+    return false;
   }
 
   @Roles(Role.Admin)
   @Post('questions')
   async updateQuestions(): Promise<boolean> {
     throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
-  }
-
-  @Sse('game-state')
-  gameState(): Observable<MessageEvent> {
-    return interval(750).pipe(
-      map((_) => ({ data: this.gameStateService.get() } as MessageEvent)),
-    );
   }
 }

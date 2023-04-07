@@ -1,4 +1,4 @@
-// https://gist.github.com/cahilfoley/4b1b2f3fa9e2f9652ee1d8501443b5ca
+import { cpus } from 'os';
 
 type Lock = {
   release: () => void;
@@ -13,8 +13,10 @@ export class Semaphore {
   private running = 0;
   private waiting: WaitingPromise[] = [];
 
+  constructor(public max: number = cpus().length) {}
+
   private take = () => {
-    if (this.waiting.length > 0 && this.running < 1) {
+    if (this.waiting.length > 0 && this.running < this.max) {
       this.running++;
 
       const task = this.waiting.shift();
@@ -24,7 +26,7 @@ export class Semaphore {
   };
 
   acquire = (): Promise<Lock> => {
-    if (this.running < 1) {
+    if (this.running < this.max) {
       this.running++;
       return Promise.resolve({ release: this.release });
     }

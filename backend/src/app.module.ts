@@ -4,8 +4,9 @@ import { APP_GUARD } from '@nestjs/core';
 import { AppController } from './app.controller';
 import { AppService } from './auth/app.service';
 import { AuthGuard } from './auth/auth.guard';
-import { GameStateService } from './game-state.service';
+import { GameService } from './game.service';
 import { RolesGuard } from './auth/role.guard';
+import { EventsGateway } from './app.websockets';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { RolesGuard } from './auth/role.guard';
   controllers: [AppController],
   providers: [
     AppService,
-    GameStateService,
+    GameService,
+    EventsGateway,
     {
       provide: APP_GUARD,
       useClass: AuthGuard,
