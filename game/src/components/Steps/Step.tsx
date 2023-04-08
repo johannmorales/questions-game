@@ -23,8 +23,8 @@ export const Step: FC<Props> = ({ index, max, isUnlocked, isCurrent }) => {
       </div>
       <span
         className={classNames(
-          "border-0 text-base drop-shadow flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full z-10 bg-gray-500 text-white shadow-sm",
-          isUnlocked && "transition-all duration-300",
+          "border-0 text-base drop-shadow flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full z-10 bg-gray-500 shadow-sm",
+          isUnlocked && "transition-all duration-300 text-white",
           !isCurrent && !isUnlocked && "text-slate-400"
         )}
         style={{

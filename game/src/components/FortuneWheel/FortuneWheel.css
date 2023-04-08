@@ -1,0 +1,52 @@
+:root {
+    --base-spin: calc(360deg * 3);
+}
+
+.wheel {
+    animation-timing-function: cubic-bezier(0, 1, 0.8, 1);
+    animation-duration: 15s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes result-0 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(calc(var(--base-spin)));
+    }
+}
+
+
+@keyframes result-1 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(calc(var(--base-spin) - 60deg));
+    }
+}
+
+
+@keyframes result-2 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(calc(var(--base-spin) - 120deg));
+    }
+}
+
+
+@keyframes result-3 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(calc(var(--base-spin) - 180deg));
+    }
+}

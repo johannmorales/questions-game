@@ -19,12 +19,57 @@ export class AppController {
   constructor(
     private readonly appService: AppService,
     private readonly configService: ConfigService,
-    private readonly gameStateService: GameService,
+    private readonly gameService: GameService,
   ) {}
 
-  @Get('questions')
-  async getQuestions(@Headers() headers): Promise<boolean> {
-    return false;
+  @Post('restart')
+  restart(@Headers() headers): void {
+    this.gameService.restart();
+  }
+
+  @Post('select-option')
+  selectOption(@Headers() headers): void {
+    this.gameService.selectOption(1);
+  }
+
+  @Post('next-question')
+  nextQuestion(@Headers() headers): void {
+    this.gameService.nextQuestion();
+  }
+
+  @Post('reveal-answer')
+  revealAnswer(@Headers() headers): void {
+    this.gameService.revealAnswer();
+  }
+
+  @Post('open-survey')
+  openSurvey(@Headers() headers): void {
+    this.gameService.openSurvey();
+  }
+
+  @Post('run-survey')
+  runSurvey(@Headers() headers): void {
+    this.gameService.runSurvey();
+  }
+
+  @Post('close-survey')
+  closeSurvey(@Headers() headers): void {
+    this.gameService.closeSurvey();
+  }
+
+  @Post('open-wheel')
+  openWheel(@Headers() headers): void {
+    this.gameService.openWheel();
+  }
+
+  @Post('run-wheel')
+  runWheel(@Headers() headers): void {
+    this.gameService.runWheel();
+  }
+
+  @Post('close-wheel')
+  closeWheel(@Headers() headers): void {
+    this.gameService.closeWheel();
   }
 
   @Roles(Role.Admin)

@@ -31,7 +31,7 @@ export class EventsGateway implements OnGatewayConnection {
   }
 
   handleConnection(client: Socket) {
-    client.emit('update2', this.gameService.get());
+    client.emit('GameStateUpdate', this.gameService.getState());
   }
 
   @SubscribeMessage('events')

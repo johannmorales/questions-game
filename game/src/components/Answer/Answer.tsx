@@ -7,14 +7,16 @@ type Props = {
   index: number;
   children: ReactNode;
   isAnswer: boolean;
-  isSelected?: boolean;
+  isSelected: boolean;
+  hidden: boolean;
 };
 
 export const Answer: FC<Props> = ({
   index,
   children,
   isAnswer,
-  isSelected = false,
+  isSelected,
+  hidden,
 }) => {
   let background: ComponentProps<typeof Container>["background"] = "default";
 
