@@ -33,7 +33,14 @@ export const Answer: FC<Props> = ({
       <span className={classNames("text-amber-500 mr-2")}>
         {getLetterFromIndex(index)}.
       </span>
-      {children}
+      <span
+        className={classNames(
+          hidden && "opacity-0",
+          !hidden && "opacity-100 transition-opacity duration-500"
+        )}
+      >
+        {children}
+      </span>
     </Container>
   );
 };

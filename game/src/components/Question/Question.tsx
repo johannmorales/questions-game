@@ -13,7 +13,7 @@ export const Question: FC<Props> = ({ children, hidden }) => {
       <span
         className={classNames(
           hidden && "opacity-0",
-          !hidden && "opacity-100 transition-opacity"
+          !hidden && "opacity-100 transition-opacity duration-500"
         )}
       >
         {children}

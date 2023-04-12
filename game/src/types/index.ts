@@ -1,10 +1,11 @@
 type GameState = {
   showQuestion: boolean;
+  adminAnswerIndex: number;
   showOptionsUntil: number;
-  answerIndex: undefined | number;
-  questionContent: string;
+  answerIndex: null | number;
+  questionContent: string | null;
   questionIndex: number | null;
-  options: [string, string, string, string];
+  options: [string, string, string, string] | null;
   selectedOptionIndex: number | null;
   questions: number;
   survey?: number[];
@@ -14,6 +15,7 @@ type GameState = {
     show: boolean;
     result: number | null;
   };
+  runningSurvey: boolean;
 };
 
 export type { GameState };

@@ -10,6 +10,15 @@ export default {
         "warning-start": "#fd8404",
         "warning-end": "#fd9e03",
       },
+      animation: {
+        border: "background ease infinite",
+      },
+      keyframes: {
+        background: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+      },
     },
   },
   plugins: [],

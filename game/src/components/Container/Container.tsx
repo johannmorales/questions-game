@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { FC, ReactNode } from "react";
+import "./Container.css";
 
 type Props = {
   children: ReactNode;
@@ -13,24 +14,28 @@ export const Container: FC<Props> = ({
   background = "default",
 }) => {
   return (
-    <div className="p-[5px] rounded-md bg-gradient-to-br from-blue-700 via-sky-600 to-indigo-800">
-      <div
-        className={classNames(
-          "rounded-md flex text-white transition-colors",
-          "text-3xl",
-          "font-bold",
-          "p-4",
-          align === "center" && "justify-center",
-          align === "left" && "justify-start",
-          background === "default" && "bg-black",
-          background === "success" &&
-            "bg-gradient-to-r from-success-start from-60% to-success-end",
-          background === "selected" &&
-            "bg-gradient-to-r from-warning-start from-60% to-warning-end"
-        )}
-      >
-        {children}
-      </div>
+    <div
+      id="box"
+      className={classNames(
+        "rounded-md flex text-white transition-colors",
+        "text-3xl",
+        "font-bold",
+        "p-4",
+        "gradient-border",
+        "bg-black",
+        "m-[5px]",
+        "after:rounded-md",
+        "after:top-4",
+        align === "center" && "justify-center",
+        align === "left" && "justify-start",
+        background === "default" && "bg-black",
+        background === "success" &&
+          "bg-gradient-to-r from-success-start from-60% to-success-end",
+        background === "selected" &&
+          "bg-gradient-to-r from-warning-start from-60% to-warning-end transition-colors duration-500"
+      )}
+    >
+      {children}
     </div>
   );
 };

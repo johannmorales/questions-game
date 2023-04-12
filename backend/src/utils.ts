@@ -54,3 +54,19 @@ export class Semaphore {
     this.waiting = [];
   };
 }
+
+export async function timeout<T>(fn: () => Promise<T>, ms: number): Promise<T> {
+  let timeoutHandle: NodeJS.Timeout;
+
+  const timeoutPromise = new Promise<T>((_resolve, reject) => {
+    timeoutHandle = setTimeout(
+      () => reject(new Error('Async call timeout limit reached')),
+      ms,
+    );
+  });
+
+  return Promise.race([fn(), timeoutPromise]).then((result) => {
+    clearTimeout(timeoutHandle);
+    return result;
+  });
+}

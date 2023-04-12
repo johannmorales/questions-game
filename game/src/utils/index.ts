@@ -3,6 +3,7 @@ function getLetterFromIndex(index: number): string {
 }
 
   function callAction(path: string, body?: any) {
+    console.log(import.meta.env.VITE_BACKEND_URL, path, body);
     fetch(`${import.meta.env.VITE_BACKEND_URL}/${path}`, {
       method: "POST",
       headers: {

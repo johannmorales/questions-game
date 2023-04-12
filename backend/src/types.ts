@@ -1,5 +1,6 @@
 export type GameState = {
   showQuestion: boolean;
+  adminAnswerIndex: boolean;
   showOptionsUntil: number;
   answerIndex: null | number;
   questionContent: string | null;
@@ -14,6 +15,7 @@ export type GameState = {
     show: boolean;
     result: number | null;
   };
+  runningSurvey: boolean;
 };
 
 export type Questionaire = {

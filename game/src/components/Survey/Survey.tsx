@@ -3,19 +3,27 @@ import { Container } from "../Container";
 import { Bar } from "./Bar";
 
 type Props = {
-  data: number[];
+  data: number[] | null;
 };
 
 export const Survey: FC<Props> = ({ data }) => {
   const heights = useMemo(() => {
+    if (data === null) {
+      return 0;
+    }
     const max = Math.max(...data);
     return data.map((voters) => (voters / max) * 100);
   }, [data]);
-  const total = useMemo(
-    () => data.reduce((prev, next) => prev + next, 0),
-    [data]
-  );
+  const total = useMemo(() => {
+    if (data === null) {
+      return 0;
+    }
+    return data.reduce((prev, next) => prev + next, 0);
+  }, [data]);
   const percentages = useMemo(() => {
+    if (data === null) {
+      return [0, 0, 0, 0];
+    }
     return data.map((voters) => (total === 0 ? 0 : (voters / total) * 100));
   }, [total, data]);
   return (

@@ -1,0 +1,32 @@
+.gradient-border {
+    --borderWidth: 5px;
+    position: relative;
+}
+
+.gradient-border::after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #3730a3, #3730a3, #3730a3, #3730a3, #3730a3, #0284c7, #3730a3, #3730a3);
+    z-index: -1;
+    animation: animatedgradient 7s linear alternate infinite;
+    background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

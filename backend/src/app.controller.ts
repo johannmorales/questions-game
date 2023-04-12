@@ -1,75 +1,75 @@
 import {
   Controller,
-  Get,
   HttpException,
   HttpStatus,
   Post,
-  Sse,
-  Headers,
+  Body,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { interval, map, Observable } from 'rxjs';
-import { AppService } from './auth/app.service';
-import { GameService } from './game.service';
+import { GameService } from './app.service';
 import { Roles } from './auth/roles.decorator';
 import { Role } from './types';
 
 @Controller()
 export class AppController {
   constructor(
-    private readonly appService: AppService,
     private readonly configService: ConfigService,
     private readonly gameService: GameService,
   ) {}
 
   @Post('restart')
-  restart(@Headers() headers): void {
+  restart(): void {
     this.gameService.restart();
   }
 
   @Post('select-option')
-  selectOption(@Headers() headers): void {
-    this.gameService.selectOption(1);
+  selectOption(@Body() body): void {
+    this.gameService.selectOption(body.index);
   }
 
   @Post('next-question')
-  nextQuestion(@Headers() headers): void {
+  nextQuestion(): void {
     this.gameService.nextQuestion();
   }
 
   @Post('reveal-answer')
-  revealAnswer(@Headers() headers): void {
+  revealAnswer(): void {
     this.gameService.revealAnswer();
   }
 
   @Post('open-survey')
-  openSurvey(@Headers() headers): void {
+  openSurvey(): void {
     this.gameService.openSurvey();
   }
 
   @Post('run-survey')
-  runSurvey(@Headers() headers): void {
+  runSurvey(): void {
     this.gameService.runSurvey();
   }
 
   @Post('close-survey')
-  closeSurvey(@Headers() headers): void {
+  closeSurvey(): void {
     this.gameService.closeSurvey();
   }
 
   @Post('open-wheel')
-  openWheel(@Headers() headers): void {
+  openWheel(): void {
     this.gameService.openWheel();
   }
 
   @Post('run-wheel')
-  runWheel(@Headers() headers): void {
+  runWheel(): void {
     this.gameService.runWheel();
   }
 
   @Post('close-wheel')
-  closeWheel(@Headers() headers): void {
+  closeWheel(): void {
     this.gameService.closeWheel();
+  }
+
+  @Post('reveal-next')
+  revealNext(): void {
+    this.gameService.revealNext();
   }
 
   @Roles(Role.Admin)

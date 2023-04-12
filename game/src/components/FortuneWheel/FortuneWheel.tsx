@@ -7,7 +7,6 @@ type Props = {
 };
 export const FortuneWheel: FC<Props> = ({ result }) => {
   const animationName = result !== null ? `result-${result}` : undefined;
-  console.log("animation name", animationName);
   return (
     <div>
       <img
